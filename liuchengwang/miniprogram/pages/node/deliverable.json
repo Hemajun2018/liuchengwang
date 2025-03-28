@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "节点交付内容",
+  "navigationBarBackgroundColor": "#4285f4",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+} 

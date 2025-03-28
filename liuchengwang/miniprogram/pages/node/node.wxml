@@ -1,0 +1,49 @@
+<!-- 节点详情页面 -->
+<view class="container">
+  <!-- 项目标题卡片 -->
+  <view class="card">
+    <view class="card-header">
+      <view class="card-title">项目信息</view>
+    </view>
+    <view class="card-content">
+      <view class="project-name">流程王</view>
+    </view>
+  </view>
+  
+  <!-- 节点详情卡片 -->
+  <view class="card">
+    <view class="card-header">
+      <view class="card-title">节点详情</view>
+      <view class="status-badge {{element.status === 'completed' ? 'completed' : 'pending'}}">
+        {{element.status === 'completed' ? '已完成' : '进行中'}}
+      </view>
+    </view>
+    
+    <view class="card-content">
+      <!-- 信息列表 -->
+      <view class="info-list">
+        <!-- 交付结果 -->
+        <view class="info-item">
+          <view class="info-label">交付结果</view>
+          <view class="info-value">{{element.name || '-'}}</view>
+        </view>
+        
+        <!-- 详细描述 -->
+        <view class="info-item">
+          <view class="info-label">详细描述</view>
+          <view class="info-value">{{element.content || '-'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 加载提示 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view class="error-message" wx:if="{{errorMessage}}">
+    <text>{{errorMessage}}</text>
+  </view>
+</view>

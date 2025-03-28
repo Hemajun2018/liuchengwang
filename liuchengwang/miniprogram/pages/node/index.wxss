@@ -1,0 +1,215 @@
+page {
+  height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx; /* 确保底部有足够空间 */
+}
+
+.node-info {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.node-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.node-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  font-size: 24rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 30rpx;
+  color: #fff;
+}
+
+.not_started {
+  background-color: #909399;
+}
+
+.in_progress {
+  background-color: #409eff;
+}
+
+.completed {
+  background-color: #67c23a;
+}
+
+.delayed {
+  background-color: #e6a23c;
+}
+
+.pending {
+  background-color: #e6a23c;
+}
+
+.resolved {
+  background-color: #67c23a;
+}
+
+.node-description {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 20rpx;
+}
+
+.node-dates {
+  margin-top: 20rpx;
+  border-top: 1px solid #eee;
+  padding-top: 20rpx;
+}
+
+.date-item {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.date-label {
+  color: #666;
+  width: 160rpx;
+  font-size: 28rpx;
+}
+
+.date-value {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin: 30rpx 0 20rpx;
+  padding-left: 16rpx;
+  border-left: 4rpx solid #4285f4;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 30rpx 0;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 问题列表样式 */
+.issues-list {
+  margin-bottom: 30rpx;
+}
+
+.issue-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.issue-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.issue-text {
+  font-size: 30rpx;
+  color: #333;
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.issue-status {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.issue-dates {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.issue-dates text {
+  margin-right: 20rpx;
+  margin-bottom: 8rpx;
+}
+
+/* 材料列表样式 */
+.materials-list {
+  margin-bottom: 30rpx;
+}
+
+.material-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.material-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.material-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.material-status {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.material-description {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.material-dates {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.material-dates text {
+  margin-right: 20rpx;
+  margin-bottom: 8rpx;
+} 

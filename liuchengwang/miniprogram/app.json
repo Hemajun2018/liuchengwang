@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/project/index",
+    "pages/node/index",
+    "pages/node/detail",
+    "pages/node/deliverable",
+    "pages/problem/detail",
+    "pages/material/detail",
+    "pages/prerequisite/index",
+    "pages/prerequisite/detail",
+    "pages/result/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#4285f4",
+    "navigationBarTitleText": "流程王",
+    "navigationStyle": "default"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,148 @@
+
+
+
+#一、项目整体架构
+##1. 三层架构设计
+流程王项目
+├── 前端层
+│   ├── 管理后台（Web端）
+│   └── 员工端（小程序）
+├── 服务层
+│   └── NestJS后端服务
+└── 数据层
+    ├── MySQL数据库
+    └── Redis缓存
+哎，来啦
+
+##2. 项目代码仓库结构
+liuchengwang/
+├── backend/           # NestJS后端服务
+├── admin/             # Vue3管理后台（Web前端）
+├── miniprogram/       # 微信小程序（小程序前端）
+├── docs/              # 项目文档
+│   ├── api/           # API文档
+│   ├── database/      # 数据库设计文档
+│   └── guides/        # 开发指南和使用手册
+├── scripts/           # 部署脚本和工具脚本
+│   ├── deploy/        # 部署相关脚本
+│   └── db/            # 数据库初始化脚本
+├── shared/            # 前后端共享代码
+│   └── types/         # 共享的TypeScript类型定义
+└── .github/           # GitHub配置
+    └── workflows/     # GitHub Actions工作流配置
+
+#二、后端服务架构 (NestJS)
+##1. 目录结构
+backend/
+├── src/
+│   ├── main.ts                    # 应用入口
+│   ├── app.module.ts              # 根模块
+│   ├── config/                    # 配置文件
+│   ├── common/                    # 公共模块
+│   │   ├── decorators/           # 自定义装饰器
+│   │   ├── filters/              # 异常过滤器
+│   │   ├── guards/               # 守卫
+│   │   ├── interceptors/         # 拦截器
+│   │   ├── middlewares/          # 中间件
+│   │   └── pipes/                # 管道
+│   ├── modules/                   # 功能模块
+│   │   ├── auth/                 # 认证模块
+│   │   ├── users/                # 用户模块
+│   │   ├── projects/             # 项目模块
+│   │   ├── nodes/                # 节点模块
+│   │   ├── issues/               # 问题模块
+│   │   └── materials/            # 材料模块
+│   └── database/                  # 数据库相关
+│       ├── entities/             # 实体类
+│       ├── migrations/           # 数据库迁移
+│       └── seeds/                # 种子数据
+├── test/                          # 测试文件
+├── nest-cli.json                  # NestJS配置
+├── package.json                   # 依赖管理
+└── tsconfig.json                  # TypeScript配置
+
+##2. 核心API接口设计
+认证相关接口
+POST /api/auth/login - 管理员登录
+POST /api/auth/mini-login - 小程序员工登录
+POST /api/auth/logout - 退出登录
+GET /api/auth/profile - 获取当前用户信息
+项目相关接口
+GET /api/projects - 获取项目列表
+GET /api/projects/:id - 获取项目详情
+POST /api/projects - 创建项目
+PUT /api/projects/:id - 更新项目
+DELETE /api/projects/:id - 删除项目
+POST /api/projects/verify-password - 验证项目密码
+节点相关接口
+GET /api/projects/:projectId/nodes - 获取项目节点列表
+GET /api/nodes/:id - 获取节点详情
+POST /api/projects/:projectId/nodes - 创建节点
+PUT /api/nodes/:id - 更新节点
+DELETE /api/nodes/:id - 删除节点
+问题相关接口
+GET /api/nodes/:nodeId/issues - 获取节点问题列表
+POST /api/nodes/:nodeId/issues - 创建问题
+PUT /api/issues/:id - 更新问题
+DELETE /api/issues/:id - 删除问题
+材料相关接口
+GET /api/nodes/:nodeId/materials - 获取节点材料列表
+POST /api/nodes/:nodeId/materials - 创建材料
+PUT /api/materials/:id - 更新材料
+DELETE /api/materials/:id - 删除材料
+
+三、管理后台架构 (Vue3)
+1. 目录结构
+admin/
+├── public/                        # 静态资源
+├── src/
+│   ├── main.ts                    # 应用入口
+│   ├── App.vue                    # 根组件
+│   ├── assets/                    # 资源文件
+│   ├── components/                # 公共组件
+│   │   ├── common/               # 通用组件
+│   │   ├── layout/               # 布局组件
+│   │   └── business/             # 业务组件
+│   ├── router/                    # 路由配置
+│   ├── store/                     # Pinia状态管理
+│   │   ├── modules/              # 状态模块
+│   │   └── index.ts              # 状态入口
+│   ├── views/                     # 页面视图
+│   │   ├── login/                # 登录页
+│   │   ├── dashboard/            # 仪表盘
+│   │   ├── projects/             # 项目管理
+│   │   ├── nodes/                # 节点管理
+│   │   ├── issues/               # 问题管理
+│   │   └── materials/            # 材料管理
+│   ├── api/                       # API请求
+│   ├── utils/                     # 工具函数
+│   ├── hooks/                     # 自定义Hooks
+│   └── types/                     # TypeScript类型定义
+├── vite.config.ts                 # Vite配置
+├── package.json                   # 依赖管理
+└── tsconfig.json                  # TypeScript配置
+
+五、小程序架构
+1. 目录结构
+miniprogram/
+├── app.js                         # 小程序入口
+├── app.json                       # 全局配置
+├── app.wxss                       # 全局样式
+├── project.config.json            # 项目配置
+├── sitemap.json                   # 微信索引配置
+├── components/                    # 自定义组件
+│   ├── common/                   # 通用组件
+│   └── business/                 # 业务组件
+├── pages/                         # 页面
+│   ├── login/                    # 登录页
+│   ├── index/                    # 首页（搜索页）
+│   ├── project-flow/             # 流程图页面
+│   ├── prerequisite/             # 前置条件详情页
+│   ├── material/                 # 材料详情页
+│   ├── issue/                    # 问题详情页
+│   └── result/                   # 成果展示页
+├── services/                      # API服务
+├── store/                         # MobX状态管理
+├── utils/                         # 工具函数
+├── config/                        # 配置文件
+└── assets/                        # 资源文件

@@ -1,0 +1,130 @@
+<!-- 流程页面 -->
+<view class="container">
+  <!-- 项目标题 -->
+  <view class="project-header">
+    <view class="project-title">流程王</view>
+    <view class="project-subtitle">项目流程图</view>
+  </view>
+  
+  <!-- 流程图 -->
+  <view class="flow-chart">
+    <!-- 前置条件 -->
+    <view class="element-box precondition" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="precondition" data-id="{{precondition.id}}">
+      <view class="element-icon">📋</view>
+      <view class="element-text">前置条件</view>
+      <view class="element-status {{precondition.status === 'completed' ? 'completed' : ''}}"></view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector-container">
+      <view class="connector vertical"></view>
+    </view>
+    
+    <!-- 第一行：问题和材料 -->
+    <view class="element-row">
+      <view class="element-box problem" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="problem" data-id="{{problems[0].id}}">
+        <view class="element-icon">❓</view>
+        <view class="element-text">问题</view>
+        <view class="element-status {{problems[0].status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+      <view class="connector-container horizontal">
+        <view class="connector horizontal"></view>
+      </view>
+      <view class="element-box material" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="material" data-id="{{materials[0].id}}">
+        <view class="element-icon">📦</view>
+        <view class="element-text">材料</view>
+        <view class="element-status {{materials[0].status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector-container">
+      <view class="connector vertical"></view>
+    </view>
+    
+    <!-- 节点1 -->
+    <view class="element-box node" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="node" data-id="{{nodes[0].id}}">
+      <view class="element-icon">📍</view>
+      <view class="element-text">节点1</view>
+      <view class="element-status {{nodes[0].status === 'completed' ? 'completed' : ''}}"></view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector-container">
+      <view class="connector vertical"></view>
+    </view>
+    
+    <!-- 第二行：问题和材料 -->
+    <view class="element-row">
+      <view class="element-box problem" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="problem" data-id="{{problems[1].id}}">
+        <view class="element-icon">❓</view>
+        <view class="element-text">问题</view>
+        <view class="element-status {{problems[1].status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+      <view class="connector-container horizontal">
+        <view class="connector horizontal"></view>
+      </view>
+      <view class="element-box material" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="material" data-id="{{materials[1].id}}">
+        <view class="element-icon">📦</view>
+        <view class="element-text">材料</view>
+        <view class="element-status {{materials[1].status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector-container">
+      <view class="connector vertical"></view>
+    </view>
+    
+    <!-- 节点2 -->
+    <view class="element-box node" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="node" data-id="{{nodes[1].id}}">
+      <view class="element-icon">📍</view>
+      <view class="element-text">节点2</view>
+      <view class="element-status {{nodes[1].status === 'completed' ? 'completed' : ''}}"></view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector-container">
+      <view class="connector vertical"></view>
+    </view>
+    
+    <!-- 第三行：问题和材料 -->
+    <view class="element-row">
+      <view class="element-box problem" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="problem" data-id="{{problems[2].id}}">
+        <view class="element-icon">❓</view>
+        <view class="element-text">问题</view>
+        <view class="element-status {{problems[2].status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+      <view class="connector-container horizontal">
+        <view class="connector horizontal"></view>
+      </view>
+      <view class="element-box material" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="material" data-id="{{materials[2].id}}">
+        <view class="element-icon">📦</view>
+        <view class="element-text">材料</view>
+        <view class="element-status {{materials[2].status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector-container">
+      <view class="connector vertical"></view>
+    </view>
+    
+    <!-- 成果 -->
+    <view class="element-box result" hover-class="element-hover" hover-stay-time="50" bindtap="onElementTap" data-type="result" data-id="{{result.id}}">
+      <view class="element-icon">🏆</view>
+      <view class="element-text">成果</view>
+      <view class="element-status {{result.status === 'completed' ? 'completed' : ''}}"></view>
+    </view>
+  </view>
+  
+  <!-- 加载提示 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view class="error-message" wx:if="{{errorMessage}}">
+    <text>{{errorMessage}}</text>
+  </view>
+</view>

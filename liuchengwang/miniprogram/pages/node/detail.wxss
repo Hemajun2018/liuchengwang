@@ -1,0 +1,250 @@
+page {
+  background-color: #f8f9fa;
+}
+
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 头部卡片样式 */
+.header-card {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 10rpx rgba(16, 185, 129, 0.15);
+  color: #fff;
+  animation: fadeIn 0.5s ease;
+  width: calc(100% - 40rpx);
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 项目信息样式 */
+.project-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.project-icon {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+
+.project-name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 节点信息样式 */
+.node-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.node-icon {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+}
+
+.node-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.node-status {
+  font-size: 24rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 30rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 8rpx;
+}
+
+/* 状态颜色 */
+.status-not_started {
+  background-color: #94a3b8;
+}
+
+.status-in_progress {
+  background-color: #3b82f6;
+}
+
+.status-completed {
+  background-color: #10b981;
+}
+
+.status-delayed, .status-blocked {
+  background-color: #f59e0b;
+}
+
+/* 章节标题样式 */
+.section-title {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0 15rpx;
+  margin-left: 20rpx;
+}
+
+.title-icon {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+  color: #10b981;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1a202c;
+}
+
+/* 加载和空状态样式 */
+.loading-container, .empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0;
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  margin-top: 20rpx;
+  width: calc(100% - 40rpx);
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.loading-icon, .empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.7;
+  color: #a0aec0;
+}
+
+.loading-text, .empty-text {
+  font-size: 28rpx;
+  color: #718096;
+}
+
+/* 交付内容列表样式 */
+.deliverables-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  width: 100%;
+}
+
+.deliverable-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.03);
+  animation: slideUp 0.5s ease;
+  width: calc(100% - 40rpx);
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-left: 3rpx solid #10b981;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 交付内容头部样式 */
+.deliverable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.deliverable-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1a202c;
+  flex: 1;
+}
+
+.deliverable-status {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  color: #fff;
+  margin-left: 16rpx;
+}
+
+/* 交付内容信息样式 */
+.deliverable-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  background-color: #f9fafb;
+  border-radius: 10rpx;
+  padding: 16rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.info-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+  color: #10b981;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #64748b;
+  width: 120rpx;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: #334155;
+  font-weight: 500;
+}
+
+/* 底部操作区样式 */
+.footer {
+  margin-top: 40rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  font-size: 28rpx;
+  padding: 20rpx 40rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 10rpx rgba(16, 185, 129, 0.2);
+  border: none;
+}
+
+.button-icon {
+  font-size: 28rpx;
+  margin-right: 8rpx;
+}
+
+.button-text {
+  font-size: 28rpx;
+} 

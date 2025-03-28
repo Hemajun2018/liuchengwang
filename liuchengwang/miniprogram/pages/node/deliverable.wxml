@@ -1,0 +1,75 @@
+<view class="container">
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <view class="header-content">
+      <view class="project-info">
+        <view class="info-icon">📂</view>
+        <view class="info-text">
+          <text class="project-name">{{projectName}}</text>
+          <text class="node-name">{{nodeName}}</text>
+        </view>
+      </view>
+      <view class="header-title-container">
+        <view class="header-icon">📊</view>
+        <view class="header-title">交付内容列表</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 交付内容列表 -->
+  <view class="deliverables-container">
+    <view class="loading-tip" wx:if="{{loading}}">
+      <view class="loading-icon">⏳</view>
+      <view class="loading-text">加载中...</view>
+    </view>
+    <view class="empty-tip" wx:elif="{{deliverables.length === 0}}">
+      <view class="empty-icon">📝</view>
+      <view class="empty-text">暂无交付内容</view>
+    </view>
+    
+    <view class="deliverables-list" wx:else>
+      <view class="deliverable-item" wx:for="{{deliverables}}" wx:key="id">
+        <view class="deliverable-header">
+          <view class="deliverable-title-container">
+            <view class="deliverable-icon">📋</view>
+            <text class="deliverable-title">{{item.description}}</text>
+          </view>
+          <view class="deliverable-status status-{{item.status}}">
+            <text>{{item.statusText}}</text>
+          </view>
+        </view>
+        
+        <view class="deliverable-time-info">
+          <view class="time-row">
+            <view class="time-icon">🕒</view>
+            <text class="time-label">开始时间:</text>
+            <text class="time-value">{{item.startDate}}</text>
+          </view>
+          <view class="time-row">
+            <view class="time-icon">🏁</view>
+            <text class="time-label">结束时间:</text>
+            <text class="time-value">{{item.endDate}}</text>
+          </view>
+          <view class="time-row">
+            <view class="time-icon">📅</view>
+            <text class="time-label">完成天数:</text>
+            <text class="time-value">{{item.durationDays}} 天</text>
+          </view>
+          <view class="time-row">
+            <view class="time-icon">📊</view>
+            <text class="time-label">完成状态:</text>
+            <text class="time-value status-text-{{item.status}}">{{item.statusText}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部操作区 -->
+  <view class="action-buttons">
+    <button class="action-btn back-btn" bindtap="goBack">
+      <text class="btn-icon">↩️</text>
+      <text class="btn-text">返回流程图</text>
+    </button>
+  </view>
+</view> 

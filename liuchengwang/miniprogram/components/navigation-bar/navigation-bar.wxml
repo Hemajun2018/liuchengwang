@@ -1,0 +1,12 @@
+<view class="navigation-bar" style="height: {{navBarHeight}}px; padding-top: {{statusBarHeight}}px; background: {{background}};">
+  <view class="navigation-bar__inner" style="color: {{color}};">
+    <view class="navigation-bar__left" wx:if="{{back}}">
+      <view class="navigation-bar__buttons" bindtap="navigateBack">
+        <view class="navigation-bar__button navigation-bar__button_back">返回</view>
+      </view>
+    </view>
+    <view class="navigation-bar__center">
+      <text>{{title}}</text>
+    </view>
+  </view>
+</view>

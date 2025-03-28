@@ -1,0 +1,68 @@
+<!-- 流程图组件 -->
+<view class="flow-chart-container">
+  <view class="flow-chart">
+    <!-- 前置条件 -->
+    <view class="element precondition" bindtap="onElementTap" data-type="precondition" data-id="{{precondition.id}}">
+      <view class="element-content">
+        <view class="element-title">前置条件</view>
+        <view class="element-status {{precondition.status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector vertical"></view>
+    
+    <!-- 问题 -->
+    <view class="element-row">
+      <block wx:for="{{problems}}" wx:key="id">
+        <view class="element problem" bindtap="onElementTap" data-type="problem" data-id="{{item.id}}">
+          <view class="element-content">
+            <view class="element-title">问题{{index + 1}}</view>
+            <view class="element-status {{item.status === 'completed' ? 'completed' : ''}}"></view>
+          </view>
+        </view>
+      </block>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector vertical"></view>
+    
+    <!-- 材料 -->
+    <view class="element-row">
+      <block wx:for="{{materials}}" wx:key="id">
+        <view class="element material" bindtap="onElementTap" data-type="material" data-id="{{item.id}}">
+          <view class="element-content">
+            <view class="element-title">材料{{index + 1}}</view>
+            <view class="element-status {{item.status === 'completed' ? 'completed' : ''}}"></view>
+          </view>
+        </view>
+      </block>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector vertical"></view>
+    
+    <!-- 节点 -->
+    <view class="element-row">
+      <block wx:for="{{nodes}}" wx:key="id">
+        <view class="element node" bindtap="onElementTap" data-type="node" data-id="{{item.id}}">
+          <view class="element-content">
+            <view class="element-title">{{item.name}}</view>
+            <view class="element-status {{item.status === 'completed' ? 'completed' : ''}}"></view>
+          </view>
+        </view>
+      </block>
+    </view>
+    
+    <!-- 连接线 -->
+    <view class="connector vertical"></view>
+    
+    <!-- 成果 -->
+    <view class="element result" bindtap="onElementTap" data-type="result" data-id="{{result.id}}">
+      <view class="element-content">
+        <view class="element-title">成果</view>
+        <view class="element-status {{result.status === 'completed' ? 'completed' : ''}}"></view>
+      </view>
+    </view>
+  </view>
+</view>

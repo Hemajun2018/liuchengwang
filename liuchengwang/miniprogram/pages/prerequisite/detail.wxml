@@ -1,0 +1,68 @@
+<view class="container">
+  <!-- 页面头部 - 项目和前置条件信息 -->
+  <view class="header-card">
+    <view class="project-info">
+      <view class="project-icon">📂</view>
+      <view class="project-name">{{projectName}}</view>
+    </view>
+    <view class="node-info">
+      <view class="node-icon">📋</view>
+      <view class="node-name">前置条件</view>
+    </view>
+  </view>
+  
+  <!-- 交付内容列表 -->
+  <view class="content-card">
+    <!-- 加载中提示 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-icon">⏳</view>
+      <view class="loading-text">加载中...</view>
+    </view>
+    
+    <!-- 空状态提示 -->
+    <view class="empty-container" wx:elif="{{deliverables.length === 0}}">
+      <view class="empty-icon">📝</view>
+      <view class="empty-text">暂无交付内容</view>
+    </view>
+    
+    <!-- 交付内容列表 -->
+    <view class="deliverables-list" wx:else>
+      <view class="deliverable-card" wx:for="{{deliverables}}" wx:key="id">
+        <!-- 交付内容标题和状态 -->
+        <view class="deliverable-header">
+          <view class="deliverable-title">{{item.content}}</view>
+          <view class="deliverable-status status-{{item.status}}">{{item.statusText}}</view>
+        </view>
+        
+        <!-- 交付内容时间信息 -->
+        <view class="deliverable-info">
+          <view class="info-item" wx:if="{{item.startDate}}">
+            <view class="info-icon">🕒</view>
+            <view class="info-label">开始时间:</view>
+            <view class="info-value">{{item.startDate}}</view>
+          </view>
+          
+          <view class="info-item" wx:if="{{item.endDate}}">
+            <view class="info-icon">🏁</view>
+            <view class="info-label">结束时间:</view>
+            <view class="info-value">{{item.endDate}}</view>
+          </view>
+          
+          <view class="info-item" wx:if="{{item.durationDays}}">
+            <view class="info-icon">📅</view>
+            <view class="info-label">持续天数:</view>
+            <view class="info-value">{{item.durationDays}} 天</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部操作区 -->
+  <view class="footer">
+    <button class="back-button" bindtap="goBack">
+      <view class="button-icon">↩️</view>
+      <view class="button-text">返回流程图</view>
+    </button>
+  </view>
+</view> 

@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="logo-container">
+    <view class="logo-box">
+      <view class="logo-text">流程王</view>
+    </view>
+    <text class="app-name">流程王</text>
+    <text class="app-slogan">高效管理您的项目流程</text>
+  </view>
+  
+  <view class="login-form">
+    <view class="form-item">
+      <text class="form-label">项目ID</text>
+      <input class="form-input" type="text" placeholder="请输入项目ID" value="{{projectId}}" bindinput="onProjectIdInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">密码</text>
+      <input class="form-input" password placeholder="请输入项目密码" value="{{password}}" bindinput="onPasswordInput" />
+    </view>
+    
+    <button class="login-btn" bindtap="handleLogin" loading="{{loading}}">登 录</button>
+  </view>
+  
+  <view class="footer">
+    <text class="copyright">© 2023 流程王 版权所有</text>
+  </view>
+</view>

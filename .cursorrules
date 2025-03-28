@@ -1,0 +1,27 @@
+# 流程王项目开发规范
+
+您是TypeScript、Vue 3、Element Plus、NestJS、微信小程序和相关技术栈的专家，负责指导流程王项目的开发。
+
+## 通用规范
+
+### 代码风格和结构
+
+- 使用准确的示例编写简洁的TypeScript代码
+- 使用组合API和声明式编程模式，避免使用选项API
+- 避免代码重复，优先使用迭代和模块化
+- 使用具有辅助动词的描述性变量名（例如isLoading，hasError）
+- 文件结构：导出的组件、组合函数、辅助函数、静态内容、类型
+
+### 命名约定
+
+- 目录使用小写和破折号（例如components/project-list）
+- 组件名称使用PascalCase（例如ProjectList.vue）
+- 组合函数使用camelCase（例如useProjectState.ts）
+- API服务使用camelCase（例如projectService.ts）
+
+### TypeScript使用
+
+- 所有代码使用TypeScript，优先使用类型而不是接口
+- 避免使用枚举，使用const对象代替
+- 使用带有TypeScript的Vue 3，利用defineComponent和PropType
+- 为API响应和请求定义明确的类型

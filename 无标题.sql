@@ -1,0 +1,13 @@
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('id', 'int', 'NO', 'PRI', NULL, 'auto_increment');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('node_id', 'int', 'NO', 'MUL', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('name', 'varchar(100)', 'NO', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('description', 'text', 'YES', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('url', 'varchar(255)', 'YES', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('type', 'enum(\'document\',\'image\',\'video\',\'audio\',\'other\')', 'YES', '', 'document', '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('fileSize', 'varchar(50)', 'YES', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('created_at', 'datetime(6)', 'NO', '', 'CURRENT_TIMESTAMP(6)', 'DEFAULT_GENERATED');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('updated_at', 'datetime(6)', 'NO', '', 'CURRENT_TIMESTAMP(6)', 'DEFAULT_GENERATED on update CURRENT_TIMESTAMP(6)');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('start_date', 'date', 'YES', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('expected_end_date', 'date', 'YES', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('duration_days', 'int', 'YES', '', NULL, '');
+INSERT INTO `<table_name>` (`Field`, `Type`, `Null`, `Key`, `Default`, `Extra`) VALUES ('status', 'enum(\'not_started\',\'in_progress\',\'completed\',\'delayed\')', 'YES', '', 'not_started', '');

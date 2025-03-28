@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="detail-card">
+    <view class="card-header">
+      <text class="card-title">项目前置条件</text>
+      <text class="status-tag status-{{projectInfo.status}}">{{statusText}}</text>
+    </view>
+    
+    <view class="card-section">
+      <view class="section-title">所属项目</view>
+      <view class="section-content">{{projectInfo.name}}</view>
+    </view>
+    
+    <view class="card-section" wx:if="{{projectInfo.deliverables}}">
+      <view class="section-title">需交付内容</view>
+      <view class="section-content">{{projectInfo.deliverables}}</view>
+    </view>
+    
+    <view class="card-section">
+      <view class="section-title">时间信息</view>
+      <view class="info-row">
+        <text class="info-label">开始时间:</text>
+        <text class="info-value">{{formattedStartTime}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">结束时间:</text>
+        <text class="info-value">{{formattedEndTime}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">完成天数:</text>
+        <text class="info-value">{{projectInfo.days_needed || '0'}} 天</text>
+      </view>
+    </view>
+    
+    <view class="card-section">
+      <view class="section-title">完成状态</view>
+      <view class="section-content">
+        <text class="status-text-display">{{statusText}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="action-buttons">
+    <button class="action-btn back-btn" bindtap="goBack">返回流程图</button>
+  </view>
+</view> 

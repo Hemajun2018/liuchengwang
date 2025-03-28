@@ -1,0 +1,53 @@
+/* 详情卡片组件样式 */
+.detail-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-content {
+  padding: 30rpx;
+}
+
+.card-footer {
+  padding: 20rpx 30rpx;
+  background-color: #f9f9f9;
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer-item {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.footer-item:last-child {
+  margin-bottom: 0;
+}
+
+.footer-label {
+  color: #666;
+  font-size: 26rpx;
+  width: 160rpx;
+}
+
+.footer-value {
+  color: #333;
+  font-size: 26rpx;
+  flex: 1;
+}

@@ -1,0 +1,109 @@
+/* 流程图组件样式 */
+.flow-chart-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20rpx 0;
+}
+
+.flow-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+}
+
+/* 元素行 */
+.element-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10rpx 0;
+}
+
+/* 元素样式 */
+.element {
+  margin: 10rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  min-width: 180rpx;
+  max-width: 220rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.element-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+
+.element-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.element-status {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #faad14;
+  margin-top: 10rpx;
+}
+
+.element-status.completed {
+  background-color: #52c41a;
+}
+
+/* 元素类型样式 */
+.precondition {
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+}
+
+.problem {
+  background-color: #fff2e8;
+  border: 1px solid #ffbb96;
+}
+
+.material {
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+}
+
+.node {
+  background-color: #f9f0ff;
+  border: 1px solid #d3adf7;
+}
+
+.result {
+  background-color: #fcffe6;
+  border: 1px solid #eaff8f;
+}
+
+/* 连接线 */
+.connector {
+  background-color: #d9d9d9;
+}
+
+.connector.vertical {
+  width: 2rpx;
+  height: 40rpx;
+  margin: 5rpx 0;
+}
+
+.connector.horizontal {
+  width: 40rpx;
+  height: 2rpx;
+  margin: 0 5rpx;
+}

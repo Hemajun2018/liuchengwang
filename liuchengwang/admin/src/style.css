@@ -1,0 +1,125 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #333;
+  background-color: #f0f2f5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #409EFF;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #66b1ff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.2em;
+  line-height: 1.3;
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 1em;
+  border-radius: 4px;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Element-UI 组件样式覆盖 */
+.el-card {
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.1) !important;
+}
+
+.el-table {
+  width: 100%;
+}
+
+.el-table th {
+  background-color: #f5f7fa !important;
+  font-weight: 600;
+}
+
+.el-pagination {
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.el-form-item {
+  margin-bottom: 16px;
+}
+
+.el-form-item__label {
+  font-weight: 500;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .el-form--inline .el-form-item {
+    display: block;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #66b1ff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -1,0 +1,4 @@
+<!-- 状态徽章组件 -->
+<view class="status-badge {{status === 'completed' ? 'completed' : 'pending'}}">
+  <text>{{status === 'completed' ? '已完成' : '进行中'}}</text>
+</view>

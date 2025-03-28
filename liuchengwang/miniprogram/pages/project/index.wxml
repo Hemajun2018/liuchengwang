@@ -1,0 +1,104 @@
+<!-- 项目页面 -->
+<view class="container">
+  <!-- 项目名称 -->
+  <view class="project-name">{{projectInfo.name}}</view>
+  
+  <!-- 流程图标题 -->
+  <view class="flow-chart-title">
+    <text class="main-title">流程王</text>
+    <text class="sub-title">项目流程图</text>
+  </view>
+  
+  <!-- 流程图区域 -->
+  <view class="flow-chart-container">
+    <view class="loading-tip" wx:if="{{loading}}">加载中...</view>
+    <view class="empty-tip" wx:elif="{{nodes.length === 0}}">暂无节点数据</view>
+    
+    <view class="flow-chart" wx:else>
+      <!-- 前置条件节点 -->
+      <view class="node-container prerequisite-node" bindtap="goToPrerequisiteDetail">
+        <view class="node-box {{hasPrerequisite ? 'active' : ''}}">
+          <view class="node-icon">📋</view>
+          <view class="node-title">前置条件</view>
+          <view class="node-badge" wx:if="{{hasPrerequisite}}">✓</view>
+        </view>
+      </view>
+      
+      <!-- 前置条件到第一组问题和材料的连接线 -->
+      <view class="connector-line vertical-connector">
+        <view class="connector-arrow"></view>
+      </view>
+      
+      <!-- 动态生成节点列表 -->
+      <block wx:for="{{nodes}}" wx:key="id" wx:for-index="index">
+        <!-- 问题和材料行 -->
+        <view class="node-row">
+          <!-- 问题节点 -->
+          <view class="node-container issue-node" bindtap="goToNodeDetail" data-id="{{item.id}}" data-type="issue">
+            <view class="node-box {{item.issues.length > 0 ? 'active' : ''}}">
+              <view class="node-icon">❓</view>
+              <view class="node-title">问题</view>
+              <view class="node-count" wx:if="{{item.issues.length > 0}}">{{item.issues.length}}</view>
+            </view>
+            <view class="node-status-dot {{item.issues.length > 0 ? 'active' : ''}}"></view>
+          </view>
+          
+          <!-- 问题到材料的水平连接线 - 没有箭头 -->
+          <view class="horizontal-connector"></view>
+          
+          <!-- 材料节点 -->
+          <view class="node-container material-node" bindtap="goToNodeDetail" data-id="{{item.id}}" data-type="material">
+            <view class="node-box {{item.materials.length > 0 ? 'active' : ''}}">
+              <view class="node-icon">📦</view>
+              <view class="node-title">材料</view>
+              <view class="node-count" wx:if="{{item.materials.length > 0}}">{{item.materials.length}}</view>
+            </view>
+            <view class="node-status-dot {{item.materials.length > 0 ? 'active' : ''}}"></view>
+          </view>
+        </view>
+        
+        <!-- 问题和材料到流程节点的连接线 -->
+        <view class="connector-line vertical-connector">
+          <view class="connector-arrow"></view>
+        </view>
+        
+        <!-- 流程节点 -->
+        <view class="node-container process-node" bindtap="goToNodeDetail" data-id="{{item.id}}">
+          <view class="node-box {{item.status !== 'not_started' ? 'active' : ''}}">
+            <view class="node-icon">📍</view>
+            <view class="node-title">{{item.name}}</view>
+            <view class="node-status-label">{{getNodeStatusText(item.status)}}</view>
+          </view>
+          <view class="node-status-dot {{getNodeStatusClass(item.status)}}"></view>
+        </view>
+        
+        <!-- 只在不是最后一个节点时，添加连接线到下一个节点 -->
+        <view class="connector-line vertical-connector" wx:if="{{index < nodes.length - 1}}">
+          <view class="connector-arrow"></view>
+        </view>
+      </block>
+      
+      <!-- 最后一个节点到成果的连接线 -->
+      <view class="connector-line vertical-connector" wx:if="{{nodes.length > 0}}">
+        <view class="connector-arrow"></view>
+      </view>
+      
+      <!-- 成果节点 -->
+      <view class="node-container result-node" bindtap="goToResultDetail">
+        <view class="node-box {{hasResult ? 'active' : ''}}">
+          <view class="node-icon">🏆</view>
+          <view class="node-title">成果</view>
+          <view class="node-badge" wx:if="{{hasResult}}">✓</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部操作区 -->
+  <view class="bottom-actions">
+    <button class="action-btn logout-btn" bindtap="logout">
+      <text class="btn-icon">🚪</text>
+      <text class="btn-text">退出登录</text>
+    </button>
+  </view>
+</view> 

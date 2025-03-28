@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="node-info">
+    <view class="node-header">
+      <text class="node-name">{{nodeName}}</text>
+      <view class="node-status">
+        <text class="status-text {{nodeStatus}}">{{getStatusText(nodeStatus)}}</text>
+      </view>
+    </view>
+    
+    <view class="node-description">
+      <text>{{nodeDescription}}</text>
+    </view>
+
+    <view class="node-dates" wx:if="{{startDate || endDate}}">
+      <view class="date-item" wx:if="{{startDate}}">
+        <text class="date-label">开始时间：</text>
+        <text class="date-value">{{startDate}}</text>
+      </view>
+      <view class="date-item" wx:if="{{endDate}}">
+        <text class="date-label">结束时间：</text>
+        <text class="date-value">{{endDate}}</text>
+      </view>
+      <view class="date-item" wx:if="{{durationDays}}">
+        <text class="date-label">持续天数：</text>
+        <text class="date-value">{{durationDays}}天</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 问题列表 -->
+  <view class="section-title">问题列表</view>
+  <view class="issues-list" wx:if="{{issues.length > 0}}">
+    <view class="issue-item" wx:for="{{issues}}" wx:key="id">
+      <view class="issue-content">
+        <text class="issue-text">{{item.content}}</text>
+        <text class="issue-status {{item.status}}">{{getIssueStatusText(item.status)}}</text>
+      </view>
+      <view class="issue-dates" wx:if="{{item.start_date || item.expected_end_date}}">
+        <text wx:if="{{item.start_date}}">开始：{{item.start_date}}</text>
+        <text wx:if="{{item.expected_end_date}}">预计完成：{{item.expected_end_date}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="empty-tip" wx:else>暂无问题</view>
+
+  <!-- 材料列表 -->
+  <view class="section-title">材料列表</view>
+  <view class="materials-list" wx:if="{{materials.length > 0}}">
+    <view class="material-item" wx:for="{{materials}}" wx:key="id">
+      <view class="material-header">
+        <text class="material-name">{{item.name}}</text>
+        <text class="material-status {{item.status}}">{{getMaterialStatusText(item.status)}}</text>
+      </view>
+      <text class="material-description">{{item.description}}</text>
+      <view class="material-dates" wx:if="{{item.start_date || item.expected_end_date}}">
+        <text wx:if="{{item.start_date}}">开始：{{item.start_date}}</text>
+        <text wx:if="{{item.expected_end_date}}">预计完成：{{item.expected_end_date}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="empty-tip" wx:else>暂无材料</view>
+</view> 

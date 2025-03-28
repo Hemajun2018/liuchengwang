@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "项目成果",
+  "navigationBarBackgroundColor": "#1890ff",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "detail-card": "/components/detail-card/detail-card"
+  }
+}

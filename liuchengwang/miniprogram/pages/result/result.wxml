@@ -1,0 +1,36 @@
+<!-- 成果详情页面 -->
+<view class="container">
+  <view class="detail-box">
+    <view class="congratulation">
+      <text>恭喜你项目已经完成!</text>
+    </view>
+    
+    <view class="content">
+      <view class="result-header">
+        <view class="header-item">序号</view>
+        <view class="header-item">交付结果</view>
+      </view>
+      
+      <view class="result-item" wx:for="{{files}}" wx:key="id">
+        <view class="item-cell">{{index + 1}}</view>
+        <view class="item-cell">{{element.name || '项目成果'}}</view>
+      </view>
+      
+      <!-- 如果没有文件，显示一个空行 -->
+      <view class="result-item" wx:if="{{files.length === 0}}">
+        <view class="item-cell">1</view>
+        <view class="item-cell">{{element.name || '项目成果'}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 加载提示 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view class="error-message" wx:if="{{errorMessage}}">
+    <text>{{errorMessage}}</text>
+  </view>
+</view>

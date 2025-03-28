@@ -1,0 +1,86 @@
+<view class="container">
+  <!-- 祝贺横幅，始终显示 -->
+  <view class="congratulation-banner">
+    <view class="congratulation-icon">🎉</view>
+    <view class="congratulation-text">恭喜你已完成项目！</view>
+    <view class="congratulation-subtext">您的项目成果已整理如下</view>
+  </view>
+
+  <!-- 项目信息卡片 -->
+  <view class="info-card">
+    <view class="card-header">
+      <view class="header-left">
+        <view class="header-icon">📋</view>
+        <text class="card-title">项目信息</text>
+      </view>
+      <text class="status-tag status-{{projectInfo.status}}">{{getStatusText(projectInfo.status)}}</text>
+    </view>
+    
+    <view class="info-content">
+      <view class="info-item">
+        <view class="info-icon">🏢</view>
+        <view class="info-detail">
+          <text class="info-label">所属项目</text>
+          <text class="info-value">{{projectInfo.name}}</text>
+        </view>
+      </view>
+      
+      <view class="info-item" wx:if="{{projectInfo.start_time}}">
+        <view class="info-icon">🕒</view>
+        <view class="info-detail">
+          <text class="info-label">开始时间</text>
+          <text class="info-value">{{formatDate(projectInfo.start_time)}}</text>
+        </view>
+      </view>
+      
+      <view class="info-item" wx:if="{{projectInfo.end_time}}">
+        <view class="info-icon">🏁</view>
+        <view class="info-detail">
+          <text class="info-label">结束时间</text>
+          <text class="info-value">{{formatDate(projectInfo.end_time)}}</text>
+        </view>
+      </view>
+      
+      <view class="info-item" wx:if="{{projectInfo.days_needed}}">
+        <view class="info-icon">📅</view>
+        <view class="info-detail">
+          <text class="info-label">完成天数</text>
+          <text class="info-value">{{projectInfo.days_needed}} 天</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 成果列表卡片 -->
+  <view class="results-card">
+    <view class="card-header">
+      <view class="header-left">
+        <view class="header-icon">🏆</view>
+        <text class="card-title">成果列表</text>
+      </view>
+      <text class="result-count">共 {{projectInfo.results.length || 0}} 项</text>
+    </view>
+    
+    <view class="empty-tip" wx:if="{{!projectInfo.results || projectInfo.results.length === 0}}">
+      <view class="empty-icon">📝</view>
+      <view class="empty-text">暂无成果记录</view>
+    </view>
+    
+    <view class="result-list" wx:else>
+      <view class="result-item" wx:for="{{projectInfo.results}}" wx:key="id">
+        <view class="result-number">{{index + 1}}</view>
+        <view class="result-content">
+          <text class="result-text">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部操作区 -->
+  <view class="action-buttons">
+    <button class="action-btn back-btn" bindtap="goBack">
+      <text class="btn-icon">↩️</text>
+      <text class="btn-text">返回流程图</text>
+    </button>
+  </view>
+</view> 

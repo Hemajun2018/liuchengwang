@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "节点详情",
+  "navigationBarBackgroundColor": "#1890ff",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "detail-card": "/components/detail-card/detail-card"
+  }
+}

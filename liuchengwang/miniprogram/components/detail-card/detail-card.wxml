@@ -1,0 +1,28 @@
+<!-- 详情卡片组件 -->
+<view class="detail-card">
+  <view class="card-header">
+    <view class="card-title">{{title}}</view>
+    <view class="card-status">
+      <status-badge status="{{status}}"></status-badge>
+    </view>
+  </view>
+  
+  <view class="card-content">
+    <slot></slot>
+  </view>
+  
+  <view class="card-footer" wx:if="{{showFooter}}">
+    <view class="footer-item">
+      <text class="footer-label">开始时间：</text>
+      <text class="footer-value">{{startDate}}</text>
+    </view>
+    <view class="footer-item">
+      <text class="footer-label">需要天数：</text>
+      <text class="footer-value">{{daysNeeded}}</text>
+    </view>
+    <view class="footer-item">
+      <text class="footer-label">预计完成：</text>
+      <text class="footer-value">{{expectedEnd}}</text>
+    </view>
+  </view>
+</view>

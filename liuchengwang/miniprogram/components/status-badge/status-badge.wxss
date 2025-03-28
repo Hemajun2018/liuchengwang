@@ -1,0 +1,20 @@
+/* 状态徽章组件样式 */
+.status-badge {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+  line-height: 1.2;
+}
+
+.status-badge.pending {
+  background-color: #fff7e6;
+  color: #faad14;
+  border: 1px solid #ffd591;
+}
+
+.status-badge.completed {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
