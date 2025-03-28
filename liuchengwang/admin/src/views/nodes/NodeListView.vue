@@ -672,16 +672,15 @@ const issueDialogVisible = ref(false);
 const isEditIssueMode = ref(false);
 const currentNodeId = ref<number | null>(null);
 const currentIssue = ref<Issue | null>(null);
-const currentIssueDetail = ref<Issue | null>(null);
-const currentIssueId = ref<number | null>(null);
-const issueDetailDialogVisible = ref(false);
-const issueForm = reactive<Partial<Issue>>({
-  content: '',
-  status: IssueStatus.PENDING,
-  start_date: null,
-  expected_end_date: null,
-  duration_days: null
-});
+
+// 修改Issue接口的使用
+interface IssueDetail extends Issue {
+  startDate?: string | null;
+  endDate?: string | null;
+  durationDays?: number;
+}
+
+const currentIssueDetail = ref<IssueDetail | null>(null);
 
 // 材料相关变量
 const foldedMaterials = ref(new Set<number>());
@@ -1027,7 +1026,7 @@ const handleIssueDetail = (nodeId: number, issue: Issue) => {
     ...issue,
     startDate: issue.start_date,
     endDate: issue.expected_end_date,
-    durationDays: issue.duration_days || 0
+    durationDays: issue.duration_days
   };
   currentNodeId.value = nodeId;
   currentIssueId.value = issue.id;
