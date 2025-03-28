@@ -675,12 +675,12 @@ const currentIssue = ref<Issue | null>(null);
 const currentIssueDetail = ref<Issue | null>(null);
 const currentIssueId = ref<number | null>(null);
 const issueDetailDialogVisible = ref(false);
-const issueForm = ref({
+const issueForm = reactive<Partial<Issue>>({
   content: '',
   status: IssueStatus.PENDING,
-  startDate: null as string | null,
-  expectedEndDate: null as string | null,
-  durationDays: null as number | null
+  start_date: null,
+  expected_end_date: null,
+  duration_days: null
 });
 
 // 材料相关变量
@@ -910,32 +910,6 @@ const fetchNodes = async () => {
     ElMessage.error('获取节点列表失败');
   } finally {
     loading.value = false;
-  }
-};
-
-// 添加交付内容
-const addDeliverable = () => {
-  nodeForm.value.deliverables.push({
-    description: '',
-    startDate: null,
-    endDate: null,
-    durationDays: 0,
-    status: DeliverableStatus.NOT_STARTED
-  });
-};
-
-// 删除交付内容
-const removeDeliverable = (index: number) => {
-  nodeForm.value.deliverables.splice(index, 1);
-};
-
-// 计算天数
-const calculateDuration = (index: number) => {
-  const deliverable = nodeForm.value.deliverables[index];
-  if (deliverable.startDate && deliverable.endDate) {
-    const startDate = new Date(deliverable.startDate);
-    const endDate = new Date(deliverable.endDate);
-    deliverable.durationDays = differenceInDays(endDate, startDate);
   }
 };
 
@@ -1833,6 +1807,25 @@ const formatDate = (date: string | Date | null) => {
   if (!date) return '未设置';
   const dateObj = new Date(date);
   return dateObj.toLocaleDateString();
+};
+
+// 修改Issue表单的类型和属性名
+const issueForm = reactive<Partial<Issue>>({
+  content: '',
+  status: IssueStatus.PENDING,
+  start_date: null,
+  expected_end_date: null,
+  duration_days: null
+});
+
+// 修改日期处理函数
+const handleDateChange = () => {
+  if (issueForm.start_date && issueForm.expected_end_date) {
+    const start = new Date(issueForm.start_date);
+    const end = new Date(issueForm.expected_end_date);
+    const diff = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+    issueForm.duration_days = diff > 0 ? diff : 0;
+  }
 };
 </script>
 
